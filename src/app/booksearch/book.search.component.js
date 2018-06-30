@@ -23,7 +23,6 @@ var BookSearchComponent = /** @class */ (function () {
         var promise = this._bookSearch.getUserInfo();
         promise.then(function (data) {
             that.userInfo = data;
-            console.log(that.userInfo);
             localStorage.setItem('userId', data['_id']);
         });
     };
@@ -33,8 +32,6 @@ var BookSearchComponent = /** @class */ (function () {
         promise.then(function (data) {
             var promise = that._bookSearch.getFavoriteBooks();
             promise.then(function (favorite) {
-                console.log(favorite);
-                console.log(data);
                 var dataValues = data['items'];
                 if (favorite && favorite['books'].length > 0) {
                     var books_1 = favorite['books'];
@@ -56,11 +53,9 @@ var BookSearchComponent = /** @class */ (function () {
         });
     };
     BookSearchComponent.prototype.showDetails = function (url) {
-        console.log(url);
         this._router.navigate(['book/information'], { queryParams: { link: url } });
     };
     BookSearchComponent.prototype.addFavorite = function (bookId, isFavorite) {
-        console.log(isFavorite);
         var obj = {
             bookId: bookId,
             isFavorite: !isFavorite

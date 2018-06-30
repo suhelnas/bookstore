@@ -21,7 +21,6 @@ userInfo;
   let promise = this._bookSearch.getUserInfo();
   promise.then(function (data) {
     that.userInfo = data;
-    console.log(that.userInfo);
     localStorage.setItem('userId', data['_id']);
   })
   }
@@ -32,8 +31,6 @@ userInfo;
     promise.then(function (data) {
       let promise = that._bookSearch.getFavoriteBooks();
       promise.then(function (favorite) {
-        console.log(favorite);
-        console.log(data);
         let dataValues = data['items'];
         if (favorite && favorite['books'].length > 0){
         let books = favorite['books'];
@@ -57,12 +54,10 @@ userInfo;
   }
 
   showDetails(url){
-    console.log(url);
    this._router.navigate(['book/information'],{queryParams:{link:url}})
   }
 
   addFavorite(bookId,isFavorite){
-    console.log(isFavorite);
     let obj ={
       bookId:bookId,
       isFavorite:!isFavorite
