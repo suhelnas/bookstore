@@ -1,0 +1,22 @@
+.item {
+  padding-top: 50px;
+  padding-right: 20px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+}
+
+.search {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.search-item {
+  padding-left: 15px;
+  padding-right: 2px;
+}
+.logout {
+  padding-left: 1050px;
+}
+.pointer {cursor: pointer;}
+
+

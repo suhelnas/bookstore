@@ -1,0 +1,32 @@
+<div class="clearfix">
+<div class="container">
+<div class="row">
+  <div class="search">
+    <input type="text" [(ngModel)]="bookName" placeholder="enter book name" id="bookName">
+  </div>
+  <div class="search">
+    <button class="btn btn-block" id="searchBook" (click)="search()">Search</button>
+  </div>
+  <div class="logout">
+    <img src="{{userInfo&&userInfo.thumbnail&&userInfo.thumbnail}}">
+    <label>{{userInfo&&userInfo.username}}</label>
+    <button class="btn btn-block" (click)="logout()">Logout</button>
+  </div>
+</div>
+  <div class="row">
+    <div *ngFor="let book of bookArray" class="col-md-6">
+      <div class="row item">
+        <div>
+ <a href="{{book && book.volumeInfo && book.volumeInfo.infoLink}}" target="_blank"><img  class="pointer" src="{{book && book.volumeInfo && book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail}}" alt="missing"></a>
+      </div>
+        <div class="search-item">
+          <input type="checkbox" [checked]="book.isFavorite&&book.isFavorite" (change)="addFavorite(book.id,book.isFavorite)">Add Favorite<br>
+          <label>{{book.volumeInfo.title && book.volumeInfo.title}}</label><br>
+          <label>{{book.volumeInfo.publisher&&book.volumeInfo.publisher}}</label><br>
+          <label>{{book.volumeInfo.pageCount&&book.volumeInfo.pageCount}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
