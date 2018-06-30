@@ -16,7 +16,7 @@ if(global['dbConn']) {
   Routes.init(app, express.Router())
   PassportConfig.init();
   app.get('/*',function (req,res) {
-    res.sendFile('/app/build/index.html')
+    res.sendFile('/app/dist/index.html')
   })
   http.createServer(app).listen(process.env.PORT || 8080, function () {
     console.log('starting server..')
