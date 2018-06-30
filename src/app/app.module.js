@@ -23,9 +23,9 @@ var appRoutes = [{ path: 'login', component: login_component_1.LoginComponent },
         data: { title: 'Book Search' }
     },
     { path: '',
-        redirectTo: 'login',
+        redirectTo: '/login',
         pathMatch: 'full'
-    }];
+    }, { path: '**', redirectTo: '/login}', pathMatch: 'full' }];
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }

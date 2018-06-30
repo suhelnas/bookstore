@@ -18,9 +18,9 @@ let appRoutes = [{ path: 'login',component: LoginComponent },
   data: { title: 'Book Search' }
 },
   { path: '',
-    redirectTo: 'login',
+    redirectTo: '/login',
     pathMatch: 'full'
-  }];
+  },{path:'**',redirectTo:'/login}',pathMatch:'full'}];
 @NgModule({
   declarations: [
     AppComponent,LoginComponent,BookSearchComponent
