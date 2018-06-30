@@ -6,6 +6,8 @@ require('dotenv').config();
 
 export class RoutesConfig {
   static init(application:express.Application){
+    let clientfiles = '/app/dist/'
+    application.use(express.static(clientfiles));
     application.use(bodyParser.urlencoded({ extended: false, limit: 10000000 }));
     application.use(bodyParser.json({ limit: '1000mb' }));
     application.use(passport.initialize());

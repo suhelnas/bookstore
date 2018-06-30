@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var express = require("express");
 var bodyParser = require("body-parser");
 var passport = require("passport");
 var session = require("express-session");
@@ -8,6 +9,8 @@ var RoutesConfig = /** @class */ (function () {
     function RoutesConfig() {
     }
     RoutesConfig.init = function (application) {
+        var clientfiles = '/app/dist/';
+        application.use(express.static(clientfiles));
         application.use(bodyParser.urlencoded({ extended: false, limit: 10000000 }));
         application.use(bodyParser.json({ limit: '1000mb' }));
         application.use(passport.initialize());
